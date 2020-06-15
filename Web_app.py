@@ -104,8 +104,7 @@ rf_diab_prob=rf_probs[:,1]
 #### Probability Histogram 
 
 st.subheader('Your Diebetes Risk Compared to the US Population')
-Risk=
-round_(Risk,decimals = 2)
+Risk=round_(Risk,decimals = 2)
 Risk=(Risk).item()
 st.markdown(f">### Your Risk of Diebetes: {Risk*100}% \n {Risk*100} out of 100 people who are similar to you are diabetic or prediabetic ")
 
