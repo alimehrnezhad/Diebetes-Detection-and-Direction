@@ -190,7 +190,7 @@ df_rec= pd.DataFrame(input_rec, columns = ['RIDAGEYR','bmxwt','bmxht','bmxbmi','
 'Fa_hist_1', 'Bl_pres_1', 'SMQ_1', 'HHS_1'])
 df_rec_ar= preprocessing.StandardScaler().fit(X).transform(df_rec)
 Risk_rec=Pickled_RF_Model.predict_proba(df_rec_ar)[:,1]
-Risk_rec=np.asscalar(Risk_rec)
+Risk_rec=(Risk_rec).item()
 Risk_rec=np.round_(Risk_rec,decimals = 2)
 
 st.markdown(f">#### If you loose {W_loss} kg weight, your diabetes risk will reduce to : {(Risk_rec)*100}%")
