@@ -66,11 +66,11 @@ input_bc = [[Age, Weight, Height, BMI, Waist, Thigh, Arm, Calf, Gender]]
 df_bc=pd.DataFrame(input_bc, columns = ['RIDAGEYR', 'bmxwt', 'bmxht', 'bmxbmi', 'bmxwaist', 'BMXTHICR',
        'BMXARMC', 'BMXCALF', 'RIAGENDR_2'])
 df_bc_ar= preprocessing.StandardScaler().fit(X_bc).transform(df_bc)
-total_fat=np.asscalar(Total_Fat_model.predict(df_bc_ar)/1000)
-trunk_fat=np.asscalar(Trunk_Fat_model.predict(df_bc_ar)/1000)
-arm_fat=np.asscalar(Arm_Fat_model.predict(df_bc_ar)/1000)
-leg_fat=np.asscalar(Leg_Fat_model.predict(df_bc_ar)/1000)
-lean_mass=np.asscalar(Total_Lean_model.predict(df_bc_ar)/1000)
+total_fat=(Total_Fat_model.predict(df_bc_ar)/1000).item()
+trunk_fat=(Trunk_Fat_model.predict(df_bc_ar)/1000).item()
+arm_fat=(Arm_Fat_model.predict(df_bc_ar)/1000).item()
+leg_fat=(Leg_Fat_model.predict(df_bc_ar)/1000).item()
+lean_mass=(Total_Lean_model.predict(df_bc_ar)/1000).item()
 fat_ratio=trunk_fat/total_fat
 
 df_bc_ar_to= preprocessing.StandardScaler().fit(X_bc).transform(X_bc)
@@ -104,11 +104,10 @@ rf_diab_prob=rf_probs[:,1]
 #### Probability Histogram 
 
 st.subheader('Your Diebetes Risk Compared to the US Population')
-Risk=np.round_(Risk,decimals = 2)
-Risk=np.asscalar(Risk)
+Risk=
+round_(Risk,decimals = 2)
+Risk=(Risk).item()
 st.markdown(f">### Your Risk of Diebetes: {Risk*100}% \n {Risk*100} out of 100 people who are similar to you are diabetic or prediabetic ")
-
-
 
 DIS=pd.DataFrame()
 hist_values = np.histogram(rf_diab_prob,bins=100, range=(0,1),normed=True)
@@ -125,7 +124,6 @@ chart_one = alt.Chart(DIS).mark_bar().encode(
 
 chart_two = alt.Chart(DIS).mark_rule(color='red').encode(x='Risk',size=alt.value(2))
 (chart_one+chart_two).properties(width=600)
-
 
 st.altair_chart(chart_one+chart_two)
 ###
