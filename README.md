@@ -1,2 +1,6 @@
-# Diebetes-Detection-and-Derection
-Predicting risk of being pre-diabetic or undiagnosed diabetic and giving them suggestion to reduce the risk 
+# Diebetes-Detection-and-Derection (DiaD&D)
+
+-Predicts diabetes & pre-diabetes risk.
+-Encourages people to screen their health status more frequently & perform preventive actions. 
+-Reduces medication and hospitalization cost.
+
