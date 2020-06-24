@@ -1,6 +1,6 @@
-# Diebetes Detection & Derection (DiaD&D)
+# Diebetes Detection & Direction (DiaD&D)
 
-### -Predicts diabetes & pre-diabetes risk.
+### -Predicts diabetes & prediabetes risk.
 ### -Encourages people to screen their health status more frequently & perform preventive actions. 
 ### -Reduces medication and hospitalization cost.
 ##    
